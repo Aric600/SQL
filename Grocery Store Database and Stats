@@ -1,0 +1,33 @@
+--Create grocery store database
+
+create table store(id integer primary key, name text, quantity integer, price integer, sale text);
+
+insert into store values(1, "Apples", 5, 15, "NO");
+insert into store values(2, "Bananas", 4, 12, "NO");
+insert into store values(3, "Carrots", 8, 10, "YES");
+insert into store values(4, "Cheese", 6, 5, "yes");
+insert into store values(5, "Beer", 2, 40, "yes");
+insert into store values(6, "Chicken", 3, 13, "no");
+insert into store values(7, "Ham", 4, 14, "no");
+insert into store values(8, "Pork", 5, 16, "no");
+insert into store values(9, "Bacon", 7, 20, "no");
+insert into store values(10, "Oatmeal", 4, 9, "no");
+insert into store values(11, "Peanuts", 2, 5, "Yes");
+insert into store values(12, "Pork rinds", 5, 11, "Yes");
+insert into store values(13, "Steak", 7, 43, "No");
+insert into store values(14, "Cheez-its", 3, 8, "Yes");
+insert into store values(15, "Muffins", 12, 13, "No");
+
+create table kinds(foodgroup text primary key, rating integer);
+insert into kinds values("Fruits", 4);
+insert into kinds values("Grains", 5);
+insert into kinds values("Meats", 1);
+insert into kinds values("Vegetables", 3);
+insert into kinds values("Sweets", 2);
+
+--Displayed database by price 
+SELECT * FROM store
+order by price desc;
+
+select avg(price) from store;
+
