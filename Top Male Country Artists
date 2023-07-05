@@ -1,0 +1,32 @@
+
+/* Some of the Top Male Country Artists*/
+
+CREATE TABLE artists ( id INTEGER PRIMARY KEY AUTOINCREMENT, real_name TEXT, age INTEGER);
+
+INSERT INTO artists (real_name, age) VALUES ("Morgan Wallen", 30);
+INSERT INTO artists (real_name, age) VALUES ("Luke Combs", 33);
+INSERT INTO artists (real_name, age) VALUES ("Zach Bryan", 27);
+INSERT INTO artists (real_name, age) VALUES ("Eric Church", 46);
+INSERT INTO artists (real_name, age) VALUES ("Toby Keith", 61);
+
+CREATE TABLE songs (id INTEGER PRIMARY KEY AUTOINCREMENT, artist_id INTEGER, title TEXT, release_year INTEGER, album TEXT);
+
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (1, "Whiskey Glasses", 2018, "If I Know Me");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (1, "Happy Hour", 2018, "If I Know Me");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (1, "Wasted on You", 2021, "Dangerous");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (1, "Still Goin Down", 2021, "Dangerous");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (1, "I Wrote the Book", 2023, "One Thing at a Time");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (2, "Forever After All", 2019, "What You See Is What You Get");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (2, "Middle of Somewhere", 2022, "Growin Up");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (2, "Fast Car", 2023, "Gettin Old");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (3, "Open the Gate", 2022, "American Heartbreak");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (3, "Oklahoma Smokeshow", 2022, "Summertime Blues");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (3, "Snow", 2019, "DeAnn");
+INSERT INTO songs (artist_id, title, release_year, album) VALUES (3, "Condemned", 2019, "DeAnn");
+
+Select * from artists;
+
+Select a.real_name, a.age, s.title, s.release_year
+from artists a
+left outer join songs s
+on a.id=s.artist_id
