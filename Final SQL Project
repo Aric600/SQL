@@ -1,0 +1,44 @@
+/*This project utilized data from the SQLite sample database named Chinook*/
+
+How many artists are in the database?
+Select COUNT(name) from artists;
+
+Which customers are not in the United States?
+Select c.customerid, c.firstname, c.lastname, c.country
+from customers c
+where country <> 'USA';
+
+What are the total sales for 2009?
+Select SUM(total)
+from invoices
+where InvoiceDate between "2009-01-01" and "2009-12-31";
+
+Show the total sales made by each agent.
+Select emp.firstname, emp.lastname, ROUND(SUM(inv.total), 2) as 'Total Sales'
+from Chinook.employees emp
+join Chinook.customers cust
+on cust.supportrepid=emp.employeeid 
+join chinook.invoices inv
+on inv.CustomerId=cust.CustomerId
+Where emp.title='Sales Support Agent'
+Group by emp.FirstName;
+
+Show only the Customers from Brazil. 
+Select c.firstname, c.lastname, c.country
+from customers c
+where c.Country = 'Brazil';
+
+How many sales did each country have from invoices?
+Select inv.BillingCountry, COUNT(inv.invoiceid) as Sales
+from invoices inv
+group by inv.BillingCountry;
+
+How many employees are there and how many unique job titles are there?
+Select COUNT(employeeid) as total_employees, COUNT(distinct title) from employees;
+
+What albums and songs from the band Kiss are in the dataset?
+SELECT albums.title album, artists.name artist, tracks.name title
+FROM albums
+JOIN artists ON albums.artistid = artists.artistid
+JOIN tracks ON albums.albumid = tracks.albumid
+WHERE artists.name = 'Kiss';
